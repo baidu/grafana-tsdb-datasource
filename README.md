@@ -1,4 +1,4 @@
-# grafana-tsdb-datasource-plugin
+# grafana-tsdb-datasource
 
 本项目为BaiduTSDB对接grafana的数据源插件
 
@@ -24,7 +24,7 @@ brew services restart grafana
 # 使用
 
 由于Grafana不支持百度云使用公钥和私钥（AK&SK）计算签名的鉴权方式，为保证用户AK和SK的安全，因此需要通过一个代理服务进行签名计算和请求转发。
-使用之前需要先安装运行代理服务[grafana-tsdb-datasource-plugin-backend](https://github.com/baidu/grafana-tsdb-datasource-backend)。
+使用之前需要先安装运行代理服务[grafana-tsdb-datasource-backend](https://github.com/baidu/grafana-tsdb-datasource-backend)。
 
 按要求安装运行代理服务后，执行以下步骤：
 
