@@ -1,0 +1,14 @@
+<datasource-http-settings current="ctrl.current" suggest-url="http://localhost:3333">
+</datasource-http-settings>
+<h5>TSDB Settings</h5>
+<div class="gf-form max-width-30">
+    <span class="gf-form-label width-10">
+        Host:
+    </span>
+    <input type="text" class="gf-form-input"
+        ng-model="ctrl.current.jsonData.endpoint">
+    </input>
+    <info-popover mode="right-absolute">
+        your database host, such as {databaseName}.tsdb.iot.bj.baidubce.com
+    </info-popover>
+</div>

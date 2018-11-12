@@ -1,0 +1,333 @@
+<query-editor-row query-ctrl="ctrl" can-collapse="false">
+    <!-- metric & field & Alias-->
+    <div class="gf-form-inline">
+        <div class="gf-form max-width-25">
+            <label class="gf-form-label query-keyword width-8">
+                Metric
+            </label>
+            <select class="gf-form-input" ng-model="ctrl.target.metric"
+                placeholder="metric name"
+                ng-options="metric for metric in ctrl.suggestMetrics"
+                ng-change="ctrl.metricTargetBlur()">
+            </select>
+        </div>
+        <div class="gf-form">
+            <label class="gf-form-label query-keyword">
+                Field
+            </label>
+            <div class="gf-form-select-wrapper max-width-15">
+                <select ng-model="ctrl.target.field" class="gf-form-input"
+                    ng-options="field for field in ctrl.fields"
+                    ng-change="ctrl.targetBlur()">
+                </select>
+            </div>
+        </div>
+        <div class="gf-form max-width-20">
+            <label class="gf-form-label query-keyword width-6">
+                Alias
+            </label>
+            <input  type="text" class="gf-form-input"
+                ng-model="ctrl.target.alias"
+                spellcheck="false"
+                placeholder="series alias"
+                data-min-length="0" data-items="100"
+                ng-blur="ctrl.targetBlur()"></input>
+        </div>
+
+        <div class="gf-form gf-form--grow">
+            <div class="gf-form-label gf-form-label--grow"></div>
+        </div>
+    </div>
+
+    <!-- tags -->
+    <div class="gf-form-inline">
+        <div class="gf-form">
+            <label class="gf-form-label query-keyword width-8">
+                Tags
+            </label>
+        </div>
+
+        <div class="gf-form" ng-repeat="(key, values) in ctrl.target.tags track by $index" class="gf-form">
+            <label class="gf-form-label" ng-repeat="value in values">
+                    {{key}}&nbsp;=&nbsp;{{value}}
+                <a ng-click="ctrl.editTag(key, value)">
+                    <i class="fa fa-pencil"></i>
+                </a>
+                <a ng-click="ctrl.removeTag(key, value)">
+                    <i class="fa fa-remove"></i>
+                </a>
+            </label>
+        </div>
+
+        <div class="gf-form" ng-hide="ctrl.addTagMode">
+            <label class="gf-form-label query-keyword">
+                <a ng-click="ctrl.addTag()"><i class="fa fa-plus"></i></a>
+            </label>
+        </div>
+
+        <div class="gf-form" ng-show="ctrl.addTagMode">
+            <div>
+                <select ng-model="ctrl.target.currentTagKey"
+                    class="gf-form-input"
+                    placeholder="key"
+                    ng-options="tag for tag in ctrl.suggestTagKeys"
+                    ng-change="ctrl.tagBlur()">
+                </select>
+            </div>
+        <div>
+        <select ng-model="ctrl.target.currentTagValue"
+            class="gf-form-input"
+            ng-blur="ctrl.targetBlur()"
+            placeholder="value"
+            ng-options="value for value in ctrl.suggestTagValues">
+        </select>
+        </div>
+            <label class="gf-form-label" >
+                <a ng-click="ctrl.addTag()">add tag</a>
+                <a ng-click="ctrl.closeAddTagMode()"><i class="fa fa-remove"></i></a>
+            </label>
+        </div>
+
+        <div class="gf-form gf-form--grow">
+            <div class="gf-form-label gf-form-label--grow"></div>
+        </div>
+    </div>
+    <!-- start value filter-->
+    <div class="gf-form-inline">
+        <div class="gf-form">
+            <label class="gf-form-label query-keyword width-8">
+                Value Filter
+            </label>
+        </div>
+        <div class="gf-form" ng-hide="ctrl.addValueFilterMode">
+            <label class="gf-form-label query-keyword">
+                <a ng-click="ctrl.addValueFilter()"><i class="fa fa-plus"></i></a>
+            </label>
+        </div>
+        <div class="gf-form" ng-show="ctrl.addValueFilterMode">
+            <select ng-model="ctrl.target.valueFilter.compareFlag"
+                class="gf-form-input width-8"
+                placeholder="compareFlag"
+                ng-options="compareFlag for compareFlag in ctrl.suggestCompareFlag"
+                ng-change="ctrl.targetBlur()">
+            </select>
+            <input ng-model="ctrl.target.valueFilter.compareValue"
+                    class="gf-form-input width-8"
+                    placeholder="compareValue"
+                    ng-blur="ctrl.targetBlur()"
+            >
+            <label class="gf-form-label query-keyword">
+                    <a ng-click="ctrl.removeValueFilter()"><i class="fa fa-remove"></i></a>
+            </label>
+        </div> 
+    </div>
+    <!-- start fill view-->
+    <div class="gf-form-inline">
+        <div class="gf-form">
+            <label class="gf-form-label query-keyword width-8">
+                Fill
+            </label>
+        </div>
+
+        <!-- add fill mode -->
+        <select ng-model="ctrl.target.fill.type"
+            class="gf-form-input width-8"
+            placeholder="type"
+            ng-options="type.value as type.name for type in ctrl.suggestFillType"
+            ng-change="ctrl.fillTypeChange()">
+        </select>
+        <div ng-show="ctrl.target.fill.type" class="gf-form">
+            <label class="gf-form-label query-keyword width-8">
+                interval
+            </label>
+            <input ng-model="ctrl.target.fill.intervalValue"
+                    class="gf-form-input width-8"
+                    placeholder="interval"
+                    ng-blur="ctrl.targetBlur()"
+            >
+            </input>
+            <select ng-model="ctrl.target.fill.intervalUnit"
+                  class="gf-form-input width-8"
+                  ng-change="ctrl.targetBlur()"
+                  placeholder="timeUnit"
+                  ng-options="units.value as units.name for units in ctrl.suggestFillUnits">
+            </select>
+            <div ng-show="ctrl.showFill.linearOrPrevious" class="gf-form">
+                <label class="gf-form-label query-keyword width-8">
+                    maxWriteInterval
+                </label>
+                <input ng-model="ctrl.target.fill.maxWriteIntervalValue"
+                    class="gf-form-input width-8"
+                    placeholder="maxWriteIntervalValue"
+                    ng-blur="ctrl.targetBlur()"
+                    >
+                </input>
+                <select ng-model="ctrl.target.fill.maxWriteIntervalUnit"
+                  class="gf-form-input width-8"
+                  ng-change="ctrl.targetBlur()"
+                  placeholder="maxWriteIntervalUnit"
+                  ng-options="units.value as units.name for units in ctrl.suggestFillUnits">
+                </select>
+            </div>
+            <div ng-show="ctrl.showFill.fixed" class="gf-form">
+                <label class="gf-form-label query-keyword width-8">
+                    value
+                </label>
+                <input ng-model="ctrl.target.fill.value"
+                    class="gf-form-input width-8"
+                    placeholder="value"
+                    ng-blur="ctrl.targetBlur()"
+                    >
+                </input>
+            </div>
+        </div>
+        <!-- end add fill mode -->
+        <div class="gf-form gf-form--grow">
+            <div class="gf-form-label gf-form-label--grow"></div>
+        </div>
+    </div>
+    <!-- end fill view-->
+
+    <!-- start aggergator view-->
+    <div class="gf-form-inline">
+        <div class="gf-form">
+            <label class="gf-form-label query-keyword width-8">
+                Aggregators
+            </label>
+        </div>
+    
+        <div class="gf-form" ng-repeat="aggregator in ctrl.target.aggregators" class="gf-form">
+            <label class="gf-form-label">
+                {{ctrl.aggregatorToString(aggregator)}}&nbsp;
+                <a ng-click="ctrl.editAggregator(aggregator)">
+                    <i class="fa fa-pencil"></i>
+                </a>
+                <a ng-click="ctrl.removeAggregator(aggregator)">
+                    <i class="fa fa-remove"></i>
+                </a>
+            </label>
+        </div>
+    
+        <!-- show + icon-->
+        <div class="gf-form" ng-hide="ctrl.addAggregatorMode">
+            <label class="gf-form-label query-keyword">
+                <a ng-click="ctrl.addAggregator()"><i class="fa fa-plus"></i></a>
+            </label>
+        </div>
+        <!-- end show + icon -->
+
+        <!-- add aggregator mode -->
+        <div class="gf-form" ng-show="ctrl.addAggregatorMode">
+            <select ng-model="ctrl.target.currentAggregator.name"
+              class="gf-form-input width-8"
+              placeholder="name"
+              ng-options="name for name in ctrl.suggestAggregatorNames"
+              ng-change="ctrl.aggregatorNameChange()">
+            </select>
+
+            <div ng-show="ctrl.showAggregator.sampling">
+                <input ng-model="ctrl.target.currentAggregator.samplingValue"
+                  class="gf-form-input width-6"
+                  placeholder="sampling"
+                  >
+                </input>
+            </div>
+            <div ng-show="ctrl.showAggregator.sampling">
+                <select ng-model="ctrl.target.currentAggregator.samplingUnit"
+                  class="gf-form-input"
+                  placeholder="samplingUnit"
+                  ng-options="units.value as units.name for units in ctrl.suggestAggregatorUnits">
+                </select>
+            </div>
+
+            <div ng-show="ctrl.showAggregator.percentile">
+                <input ng-model="ctrl.target.currentAggregator.percentile"
+                  class="gf-form-input width-6"
+                  placeholder="percentile"
+                  ng-blur="ctrl.targetBlur()">
+                </input>
+            </div>
+
+            <div ng-show="ctrl.showAggregator.divisor">
+                <input ng-model="ctrl.target.currentAggregator.divisor"
+                  class="gf-form-input width-6"
+                  placeholder="divisor"
+                  ng-blur="ctrl.targetBlur()">
+                </input>
+            </div>
+
+            <div ng-show="ctrl.showAggregator.factor">
+                <input ng-model="ctrl.target.currentAggregator.factor"
+                  class="gf-form-input width-6"
+                  placeholder="factor"
+                  ng-blur="ctrl.targetBlur()">
+                </input>
+            </div>
+
+            <div ng-show="ctrl.showAggregator.timeUnit">
+                <select ng-model="ctrl.target.currentAggregator.timeUnit"
+                  class="gf-form-input"
+                  ng-change="ctrl.targetBlur()"
+                  placeholder="timeUnit"
+                  ng-options="units.value as units.name for units in ctrl.suggestAggregatorUnits">
+                </select>
+            </div>
+
+            <label class="gf-form-label" >
+                <a ng-click="ctrl.addAggregator()">add aggregator</a>
+                <a ng-click="ctrl.closeAddAggregatorMode()"><i class="fa fa-remove"></i></a>
+            </label>
+        </div>
+        <!-- end add aggregator mode -->
+        <div class="gf-form gf-form--grow">
+            <div class="gf-form-label gf-form-label--grow"></div>
+        </div>
+    </div>
+    <!-- end aggregator view-->    
+
+    <!-- start Group by view-->
+    <div class="gf-form-inline">
+        <div class="gf-form">
+            <label class="gf-form-label query-keyword width-8">
+                Group
+            </label>
+        </div>
+
+        <div class="gf-form" ng-repeat="tag in ctrl.target.groupTags" class="gf-form">
+            <label class="gf-form-label">
+                    {{tag}}
+                <a ng-click="ctrl.editGroupTag(tag)">
+                    <i class="fa fa-pencil"></i>
+                </a>
+                <a ng-click="ctrl.removeGroupTag(tag)">
+                    <i class="fa fa-remove"></i>
+                </a>
+            </label>
+        </div>
+    
+        <div class="gf-form" ng-hide="ctrl.addGroupTagMode">
+            <label class="gf-form-label query-keyword">
+                <a ng-click="ctrl.addGroupTag()"><i class="fa fa-plus"></i></a>
+            </label>
+        </div>
+    
+        <div class="gf-form" ng-show="ctrl.addGroupTagMode">
+            <div>
+                <select ng-model="ctrl.target.currentGroupTag"
+                  class="gf-form-input"
+                  placeholder="tag"
+                  ng-options="tag for tag in ctrl.suggestTagKeys"
+                >
+                </select>
+            </div>
+            <label class="gf-form-label" >
+                <a ng-click="ctrl.addGroupTag()">add tag</a>
+                <a ng-click="ctrl.closeAddGroupTagMode()"><i class="fa fa-remove"></i></a>
+            </label>
+        </div>
+        <div class="gf-form gf-form--grow">
+            <div class="gf-form-label gf-form-label--grow"></div>
+        </div>
+    </div>
+    <!-- end Group by-->
+</query-editor-row>

@@ -1,0 +1,29 @@
+{
+  "name": "BaiduTSDB",
+  "id": "baidu-tsdb-datasource",
+  "type": "datasource",
+
+  "metrics": true,
+  "annotations": true,
+
+  "info": {
+    "description": "baidu tsdb datasource",
+    "author": {
+      "name": "Baidu TSDB Group",
+      "url": "https://cloud.baidu.com/product/tsdb.html"
+    },
+    "logos": {
+      "small": "img/favicon.ico",
+      "large": "img/favicon.ico"
+    },
+    "links": [
+      {"name": "GitHub", "url": ""}
+    ],
+    "version": "0.1.0",
+    "updated": "2018-08-06"
+  },
+  "dependencies": {
+    "grafanaVersion": "5.x.x",
+    "plugins": [ ]
+  }
+}
