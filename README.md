@@ -37,7 +37,7 @@ brew services restart grafana
 
 # F&Q
 
-如果遇到 npm install 超时失败的问题，可以尝试使用阿里的npm源，或者直接安装cnpm
+如果遇到 npm install 超时失败的问题，可以尝试使用cnpm
 ```
 npm install cnpm -g
 cnpm install
