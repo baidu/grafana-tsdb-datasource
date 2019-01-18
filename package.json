@@ -11,7 +11,7 @@
     "type": "git",
     "url": ""
   },
-  "author": "hq <haoqiann@163.com>",
+  "author": "hq",
   "license": "Apache 2.0",
   "devDependencies": {
     "babel-core": "^6.26.0",
