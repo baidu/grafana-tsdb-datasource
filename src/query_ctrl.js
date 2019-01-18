@@ -10,8 +10,7 @@
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
  *
- * @file query_ctrl.js
- * @author hq(haoqian@baidu.com)
+ * @author hq
  */
 import _ from 'lodash';
 import {QueryCtrl} from 'grafana/app/plugins/sdk';

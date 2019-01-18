@@ -10,8 +10,7 @@
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
  *
- * @file constant file
- * @author hq(haoqian@baidu.com)
+ * @author hq
  */
 export const constants = {
     suggestAggregatorNames: ['Avg', 'Dev', 'First', 'Last', 'LeastSquares', 'Count',

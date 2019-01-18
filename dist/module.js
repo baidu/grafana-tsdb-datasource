@@ -91,8 +91,7 @@ Object.defineProperty(exports, "__esModule", {
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
  *
- * @file constant file
- * @author hq(haoqian@baidu.com)
+ * @author hq
  */
 var constants = exports.constants = {
     suggestAggregatorNames: ['Avg', 'Dev', 'First', 'Last', 'LeastSquares', 'Count', 'Max', 'Min', 'Percentile', 'Sum', 'Diff', 'Div', 'Scale', 'Rate', 'AdjacentUnique'],
@@ -141,8 +140,7 @@ exports.AnnotationsQueryCtrl = _TsdbAnnotationsQueryCtrl.TsdbAnnotationsQueryCtr
                                                                                     * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
                                                                                     * specific language governing permissions and limitations under the License.
                                                                                     *
-                                                                                    * @file module
-                                                                                    * @author hq(haoqian@baidu.com)
+                                                                                    * @author hq
                                                                                     */
 
 /***/ }),
@@ -169,8 +167,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       * specific language governing permissions and limitations under the License.
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       *
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * @file datasource
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * @author hq(haoqian@baidu.com)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * @author hq
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       */
 
 
@@ -451,8 +448,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 * specific language governing permissions and limitations under the License.
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 *
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file query_ctrl.js
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author hq(haoqian@baidu.com)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author hq
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 */
 
 
@@ -852,8 +848,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                                                                                                                                                            * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
                                                                                                                                                            * specific language governing permissions and limitations under the License.
                                                                                                                                                            *
-                                                                                                                                                           * @file config_ctrl
-                                                                                                                                                           * @author hq(haoqian@baidu.com)
+                                                                                                                                                           * @author hq
                                                                                                                                                            */
 
 
@@ -890,8 +885,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
  *
- * @file query option
- * @author hq(haoqian@baidu.com)
+ * @author hq
  */
 
 var TsdbQueryOptionsCtrl = exports.TsdbQueryOptionsCtrl = function TsdbQueryOptionsCtrl() {
@@ -925,8 +919,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
  *
- * @file annotations query ctrl
- * @author hq(haoqian@baidu.com)
+ * @author hq
  */
 
 var TsdbAnnotationsQueryCtrl = exports.TsdbAnnotationsQueryCtrl = function TsdbAnnotationsQueryCtrl() {

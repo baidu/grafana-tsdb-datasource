@@ -10,8 +10,7 @@
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
  *
- * @file module
- * @author hq(haoqian@baidu.com)
+ * @author hq
  */
 import {TsdbDatasource} from './datasource';
 import {TsdbDatasourceQueryCtrl} from './query_ctrl';
