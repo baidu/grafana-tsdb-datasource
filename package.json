@@ -25,12 +25,12 @@
     "sass-loader": "^6.0.6",
     "style-loader": "^0.20.1",
     "webpack": "^3.6.0",
-    "lodash": "4.17.13",
+    "lodash": "4.17.21",
     "lodash.mergewith": "4.6.2",
     "mem": "4.0.0"
   },
   "dependencies": {
-    "lodash": "4.17.13",
+    "lodash": "4.17.21",
     "lodash.mergewith": "4.6.2",
     "mem": "4.0.0"
   }
